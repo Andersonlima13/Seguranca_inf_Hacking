@@ -1,0 +1,77 @@
+questão 2 / resposta (letra B)
+um resolver gerencia as buscas do cliente em um servidor DNS.
+
+Questão 3 / resposta (d) -> falsa
+O DNS não está envolvido na resolução ARP (Protocolo de Resolução de Endereços). A resolução ARP é usada para mapear endereços IP para endereços MAC em redes locais
+
+Questão 4 / resposta (e) Incorreta: O servidor DHCP geralmente não fornece o endereço dos servidores Web. O endereço dos servidores Web é geralmente configurado manualmente ou obtido por meio de outros mecanismos, como a resolução DNS.
+
+Questão 5 / resposta (c)
+Ao acessar um site seguro com o protocolo HTTPS, os navegadores validam o certificado utilizando uma camada adicional de segurança chamada TLS (Transport Layer Security). Portanto, a resposta correta é:
+questão 6 / resposta  (d) II e III
+
+questão 7 / resposta (e) DHCP (Dynamic Host Configuration Protocol) é um protocolo utilizado para a atribuição automática de endereços IP em uma rede.
+
+questão 19 / resposta (d)
+ DHCP, DNS e SNMP são todos protocolos da camada de Aplicação.
+
+ANOTAÇÕES : 
+
+IMAP É UM PROTOCOLO APENAS DE ACESSO REMOTO DE EMAILS (LEITURA E GERENCIAMENTO)
+
+SMTP - ENVIO DE EMAILS
+
+
+O POP3 (Post Office Protocol version 3) e o IMAP4 (Internet Message Access Protocol version 4) são dois protocolos usados para acessar e-mails, mas eles têm algumas diferenças essenciais em termos de funcionalidade e operação. Aqui estão as principais diferenças entre POP3 e IMAP4:
+Armazenamento de Mensagens:
+POP3: Geralmente, as mensagens são baixadas para o dispositivo do cliente e removidas do servidor. Isso significa que as mensagens são geralmente armazenadas localmente e não permanecem no servidor após serem baixadas.
+IMAP4: As mensagens permanecem no servidor, e o cliente acessa e gerencia as mensagens diretamente no servidor. As alterações (como leitura ou exclusão) são refletidas no servidor.
+Conectividade:
+POP3: É uma conexão offline. Uma vez que as mensagens são baixadas, elas não estão mais no servidor, a menos que especificamente configurado para deixar uma cópia.
+IMAP4: Permite uma conexão online e permite que o cliente veja o estado atual da caixa de correio no servidor.
+Número de Dispositivos:
+POP3: É mais adequado para configurações em que o usuário acessa o e-mail de um único dispositivo, pois as mensagens são normalmente baixadas e removidas do servidor.
+IMAP4: É mais adequado quando você precisa acessar o mesmo conjunto de mensagens de vários dispositivos, pois as mensagens ficam no servidor.
+Gerenciamento de Pastas:
+POP3: Geralmente oferece suporte a uma única caixa de entrada. As pastas e a organização são frequentemente gerenciadas localmente no cliente.
+IMAP4: Suporta várias pastas no servidor, permitindo que o usuário organize suas mensagens de maneira mais eficiente.
+Eficiência:
+POP3: Pode ser mais eficiente em termos de largura de banda, pois as mensagens são baixadas localmente.
+IMAP4: Pode exigir mais largura de banda, pois as mensagens permanecem no servidor, e a comunicação é frequentemente mais intensiva.
+Conexão HTTP Persistente:
+Característica: Em uma conexão persistente, uma única conexão é reutilizada para várias solicitações e respostas entre o cliente e o servidor.
+
+
+O protocolo HTTP (Hypertext Transfer Protocol) é considerado um protocolo sem estado, o que significa que cada solicitação entre um cliente e um servidor é tratada de forma independente, sem que o servidor mantenha informações sobre o estado do cliente entre as solicitações. Cada solicitação é tratada como uma transação independente, sem conhecimento do que aconteceu anteriormente
+
+motivações:
+
+Simplicidade
+
+Escalabilidade:
+
+Facilita a Tolerância a Falhas:
+
+melhor para web
+
+
+métodos de autenticação http : 
+Basic Authentication:
+Descrição: Este é o método mais simples de autenticação. O cliente envia um cabeçalho "Authorization" na solicitação HTTP, contendo o nome de usuário e senha, codificados em Base64.
+Vulnerabilidade: A principal vulnerabilidade é que as credenciais são enviadas em texto simples (Base64 é facilmente decodificável), tornando-as vulneráveis a ataques de captura de pacotes.
+Digest Authentication:
+Descrição: Mais seguro do que o Basic Authentication, o Digest Authentication usa um desafio-resposta para autenticação. O servidor envia um desafio, e o cliente responde com uma hash da senha combinada com informações específicas do desafio.
+Vulnerabilidade: Apesar de ser mais seguro que o Basic Authentication, ainda pode ser vulnerável a ataques de repetição.
+Bearer Token (Token Authentication):
+Descrição: Muito comum em autenticação de API. O cliente recebe um token de autenticação após o login bem-sucedido. Esse token é incluído no cabeçalho "Authorization" de solicitações subsequentes.
+Vulnerabilidade: Se o token for comprometido, o invasor pode acessar os recursos até que o token expire ou seja revogado.
+OAuth (Open Authorization):
+Descrição: Usado para autorizar aplicativos de terceiros a acessar recursos em nome do usuário sem compartilhar senhas. O OAuth geralmente usa tokens de acesso temporários.
+Vulnerabilidade: Uma implementação inadequada pode levar a riscos de segurança, como token leakage e ataques de phishing.
+OpenID Connect:
+Descrição: Uma camada de autenticação sobre o protocolo OAuth 2.0, projetado para autenticar usuários e fornecer informações de identidade.
+Vulnerabilidade: Como o OAuth, as vulnerabilidades podem surgir se não implementado corretamente.
+JSON Web Token (JWT):
+Descrição: Um formato compacto e autenticado para transmitir informações entre partes em um formato que pode ser verificado e confiável.
+Vulnerabilidade: O uso inadequado, como algoritmos de assinatura fracos ou chaves mal gerenciadas, pode resultar em vulnerabilidades.
+
