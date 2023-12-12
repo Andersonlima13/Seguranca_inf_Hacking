@@ -1,3 +1,13 @@
+*ESTUDAR OS CABEÇALHOS E AUTENTICAÇÃO
+LEMRAR AS PORTAS
+* ESTUDAR DHCP
+* DIFERENÇAS IMAP E POP3
+ENTENDER MAIS DE DNS
+* DNS AUTORITATIVOS 
+* AUTENTICAÇÃO HTTP
+
+
+
 questão 2 / resposta (letra B)
 um resolver gerencia as buscas do cliente em um servidor DNS.
 
