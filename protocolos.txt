@@ -1,3 +1,16 @@
 PROTOCOLO TCP / PROTOCOLO UDP
 
 ESTUDOS DA CAMADA DE REDE
+
+
+getsockname() // obtem o endereço ip e num de porta associado à um socket
+getaddrinfo()  // Traduz nomes para endereços sockets
+socket()       // Cria um socket e retorna o descritor de arquivo
+bind()         // Associa o socket a um endereço socket e uma porta
+connect()      // Tenta estabelecer uma conexão com um socket
+listen()       // Coloca o socket para aguardar conexões
+accept()       // Aceita uma nova conexão e cria um socket
+
+Sendto / recvfrom – recebe / devolve o
+endereço do destinatário / remetente
+
