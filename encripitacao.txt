@@ -1,0 +1,122 @@
+ENCRIPTAÇÃO : 
+
+WEP
+foi o primeiro protocolo wlan então n é tão utilizado hoje
+a melhor alternativa, e q é geralmente usado é wpa e wpa2
+padrão IEEE 802.11b oq é isso ? 
+ Este é um dos padrões originais para redes sem fio Wi-Fi, lançado em 1999. 
+
+WPA WPA 2
+
+WEB INTRODUCTION
+
+WEP PRACTICAL 
+
+FAKE AUTHENTICATION ATTACK
+
+- Um ataque de autenticação falsa (Fake Authentication) é uma técnica utilizada principalmente contra redes WEP. 
+O objetivo é associar o atacante ao ponto de acesso (Access Point - AP) sem a necessidade de conhecer a chave WEP.
+
+O atacante envia pacotes de autenticação para o AP, falsificando seu endereço MAC. Alguns pontos de acesso WEP são vulneráveis a esse tipo de ataque, permitindo a associação mesmo sem a chave correta. Uma vez associado (embora sem conseguir trocar dados criptografados), o atacante pode realizar outros ataques, como o ARP Request Replay.
+ 
+Ao se associar ao AP, o atacante pode injetar tráfego na rede, o que é crucial para acelerar a coleta de vetores de inicialização (IVs) necessários para quebrar a chave WEP.
+
+
+ARP REQUEST REPLAY
+
+ O ataque de repetição de requisição ARP (ARP Request Replay) é uma técnica utilizada para gerar um grande volume de tráfego ARP em uma rede WEP.
+
+Este ataque explora uma vulnerabilidade no protocolo WEP. O atacante captura uma requisição ARP válida transmitida na rede. Essa requisição ARP contém dados não criptografados, incluindo o endereço IP e o endereço MAC do remetente e do destinatário. O ponto crucial é que esses pacotes ARP também contém o vetor de inicialização (IV) usado para criptografar o pacote WEP.
+
+Como funciona: 
+O atacante captura uma requisição ARP válida na rede. Em seguida, ele reenvia essa requisição repetidamente para o ponto de acesso. Isso faz com que o AP responda com pacotes ARP, que contêm vetores de inicialização (IVs). Ao gerar um grande número de IVs rapidamente, o processo de quebra da chave WEP se torna muito mais eficiente.
+
+
+Para que serve: O objetivo principal do ataque ARP Request Replay é acelerar a coleta de IVs, uma etapa fundamental para quebrar a criptografía WEP utilizando ferramentas como Aircrack-ng.
+
+
+Vetores de Inicialização (IVs)
+O que são:
+ Vetores de inicialização (Initialization Vectors - IVs) são sequências de bits aleatórias ou pseudoaleatórias usadas em conjunto com um algoritmo de criptografia para garantir que a mesma informação de texto plano, quando criptografada várias vezes, resulte em textos cifrados diferentes. Isso ajuda a evitar certos tipos de ataques estatísticos contra a criptografia.
+
+
+ARP (Address Resolution Protocol):
+É um protocolo da camada de enlace de dados usado para resolver endereços IP em endereços MAC (Media Access Control) dentro da mesma rede local. 
+Quando um dispositivo quer se comunicar com outro dispositivo na mesma rede, mas só conhece o endereço IP do destino, ele envia uma requisição ARP perguntando: 
+"Quem tem este endereço IP?" e o dispositivo com esse IP responde com seu endereço MAC.
+
+
+
+
+
+WPA THEORY 
+
+Foi introduzido como uma solução intermediária para substituir o WEP, que já apresentava falhas de segurança significativas. O WPA implementou melhorias de segurança importantes.
+
+Protocolo diferente uma vez que wep é vulnerável demais .
+
+Principais características:
+TKIP (Temporal Key Integrity Protocol): Um protocolo de criptografía que substituía o RC4 do WEP e incluía uma chave baseada em pacote (per-packet key mixing) e uma verificação de integridade da mensagem (MIC) chamada Michael, para evitar ataques de injeção de pacotes.
+Chave dinâmica: Ao contrário do WEP, que geralmente usava uma chave estática, o WPA introduziu um processo para gerar novas chaves de sessão periodicamente, tornando os ataques mais difíceis.
+Suporte a autenticação mais forte: Embora pudesse usar uma chave pré-compartilhada (PSK), o WPA também suportava sistemas de autenticação mais robustos baseados no padrão 802.1X, como RADIUS, para ambientes empresariais.
+(Remote Authentication Dial-In User Service): Este é um protocolo de autenticação, autorização e accounting (AAA) amplamente utilizado em redes para gerenciar o acesso de usuários a serviços de rede. Ele funciona de forma centralizada, com um servidor RADIUS que autentica os usuários (verifica suas credenciais), autoriza o acesso aos recursos de rede (determina o que eles podem fazer) e mantém logs de suas atividades (accounting)
+
+Para que serve: 
+O WPA foi um passo significativo na melhoria da segurança Wi-Fi, abordando muitas das vulnerabilidades do WEP. Ele ofereceu uma camada de proteção mais forte contra interceptação e acesso não autorizado.
+HANDSHAKE THEORY
+
+O que é: 
+O "handshake" no contexto de segurança Wi-Fi, especificamente para WPA e WPA2 (usando PSK - Pre-Shared Key), refere-se ao processo de 4-Way Handshake. Este é um conjunto de quatro mensagens trocadas entre o cliente (seu dispositivo) e o ponto de acesso (roteador) durante o processo de autenticação e estabelecimento de uma conexão segura.
+Principais características:
+AP sends ANonce: O ponto de acesso envia um número aleatório (ANonce) para o cliente.
+Client sends SNonce + MIC + Dados: O cliente responde enviando seu próprio número aleatório (SNonce), um Código de Integridade da Mensagem (MIC) calculado sobre os pacotes anteriores e possivelmente alguns dados.
+AP sends MIC + Dados: O ponto de acesso verifica o MIC do cliente e, se correto, envia seu próprio MIC e possivelmente mais dados.
+Client sends ACK: O cliente envia um pacote de confirmação (ACK) para o ponto de acesso.
+
+
+Nonce: 
+Em criptografia, um "nonce" (number used once) é um número que só deve ser usado uma vez em uma determinada comunicação ou sessão criptográfica. Seu objetivo é evitar ataques de repetição e garantir a unicidade das operações criptográficas.
+ANonce (Access Point Nonce): Este é um nonce gerado e enviado pelo ponto de acesso (AP) para o cliente durante a primeira mensagem do 4-Way Handshake.
+SNonce (Supplicant Nonce): Este é um nonce gerado e enviado pelo cliente (também chamado de supplicant) para o ponto de acesso na segunda mensagem do 4-Way Handshake.
+
+
+
+Para que serve: 
+O 4-Way Handshake é crucial para a segurança do WPA/WPA2 com PSK. 
+Durante esse processo, tanto o cliente quanto o ponto de acesso provam que conhecem a chave pré-compartilhada (senha da rede Wi-Fi) sem realmente transmiti-la diretamente. 
+As chaves de sessão usadas para criptografar o tráfego de dados são derivadas durante esse handshake, garantindo que cada sessão de conexão seja protegida por chaves únicas.
+
+
+
+
+CAPTURING HANDSHAKES 
+
+O que é:
+Capturar o handshake significa registrar os quatro pacotes de dados trocados durante o processo de autenticação de um cliente a uma rede WPA/WPA2.
+
+Como é feito: 
+Para capturar o handshake, um atacante geralmente utiliza um monitor de rede sem fio (por exemplo, usando uma placa de rede em modo monitor) e um software como Airodump-ng. O processo geralmente envolve:
+
+Colocar a interface de rede em modo monitor: 
+Permite que a placa de rede capture todos os pacotes de rádio ao redor, não apenas aqueles destinados ao seu endereço MAC.
+
+Identificar a rede alvo: 
+Usar ferramentas para listar as redes Wi-Fi próximas (SSID, BSSID, canal, tipo de segurança).
+
+BSSID (Basic Service Set Identifier): 
+É o endereço MAC (Media Access Control) do ponto de acesso (roteador). Ele identifica unicamente um ponto de acesso em uma área. 
+Em redes com múltiplos pontos de acesso com o mesmo SSID (roaming), o BSSID ajuda a distinguir entre eles.
+
+Capturar o tráfego no canal da rede alvo: 
+Direcionar a captura para o canal específico da rede que se deseja analisar.
+
+Esperar por uma nova conexão (ou deauth attack):
+Para capturar o handshake completo, é necessário que um cliente se conecte à rede enquanto a captura está em andamento. 
+Se não houver novas conexões, um ataque de desautenticação (deauth attack) pode ser realizado para forçar um cliente conectado a se desconectar e, ao tentar se reconectar, gerar o handshake.
+
+Salvar a captura:
+Os pacotes do handshake são salvos em um arquivo (geralmente no formato .cap ou .pcap).
+
+Para que serve: 
+O handshake capturado contém informações criptografadas que dependem da chave pré-compartilhada (senha) da rede. 
+Uma vez capturado, o handshake pode ser analisado offline utilizando ferramentas como Aircrack-ng para tentar quebrar a senha através de ataques de força bruta ou dicionário. A segurança do WPA/WPA2 com PSK reside na complexidade da senha; senhas fracas podem ser descobertas através da análise do handshake.
