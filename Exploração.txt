@@ -1,0 +1,48 @@
+Exploração de serviços vulneráveis
+
+envolve identificar e aproveitar falhas de segurança em softwares ou configurações de serviços de rede para obter acesso não autorizado, executar comandos, roubar informações ou interromper a operação normal do serviço. 
+Vamos entender como isso funciona para os serviços FTP, SSH, RDP e SMB.
+
+Conceitos Gerais da Exploração de Serviços Vulneráveis:
+Identificação da Vulnerabilidade: O primeiro passo é descobrir que o serviço em execução possui uma vulnerabilidade conhecida. Isso pode ser feito através de:
+
+
+Scanning de Portas e Serviços: Utilizar ferramentas como Nmap para identificar quais serviços estão rodando em um determinado host e suas versões.
+Pesquisa de Vulnerabilidades: Consultar bancos de dados de vulnerabilidades (como o CVE - Common Vulnerabilities and Exposures) para verificar se as versões dos serviços identificados possuem falhas conhecidas.
+Análise de Segurança (Auditoria): Realizar testes manuais ou automatizados para identificar configurações inseguras ou comportamentos inesperados nos serviços.
+2. Desenvolvimento ou Utilização de um Exploit: 
+Uma vez que uma vulnerabilidade é identificada, um exploit (pedaço de código ou sequência de comandos) é necessário para tirar proveito dessa falha. Exploits podem:
+Ser desenvolvidos especificamente para uma vulnerabilidade.
+Ser encontrados em frameworks de exploração como o Metasploit Framework, searchsploit ou Exploit-DB
+3. Execução do Exploit: 
+O exploit é então executado contra o serviço vulnerável no sistema alvo. O resultado da execução depende da natureza da vulnerabilidade e do exploit, podendo incluir:
+Acesso não autorizado: Obter um shell (linha de comando) no sistema com os privilégios do serviço.   (Aqui entraria a ação de outro ataque, como a exploração de privilégios dentro do shell )
+Execução de código arbitrário: Rodar comandos maliciosos no sistema. (Códigos que podem ser desenvolvidos por mim , ou buscar algo na web que faça oque vc precisa)
+Negação de serviço (DoS): Fazer com que o serviço falhe ou fique indisponível.
+Leitura de arquivos confidenciais: Acessar informações sensíveis armazenadas no sistema.
+Modificação de dados: Alterar informações no sistema.
+
+Explorando Serviços Específicos:
+
+1. FTP (File Transfer Protocol):
+O que é:
+ FTP é um protocolo padrão para transferir arquivos entre um cliente e um servidor em uma rede TCP/IP.
+Vulnerabilidades Comuns e Exploração:
+Anon FTP com permissões de escrita: 
+Se um servidor FTP permite conexões anônimas e possui diretórios com permissões de escrita, um atacante pode fazer upload de arquivos maliciosos (como scripts de backdoor) e tentar executá-los no servidor (se houver outras vulnerabilidades ou configurações inseguras).
+Vulnerabilidades em implementações específicas: Diferentes servidores FTP (como vsftpd, ProFTPD) podem ter vulnerabilidades específicas em suas versões. Exploits podem existir para essas falhas, permitindo desde leitura de arquivos até execução remota de código. Exemplo: Uma vulnerabilidade de "path traversal" pode permitir que um atacante acesse arquivos fora dos diretórios permitidos.
+Ataques de força bruta: Se as credenciais de acesso não forem fortes, um atacante pode tentar adivinhar o nome de usuário e senha usando ataques de força bruta.
+Buffer overflows: Algumas implementações antigas de FTP eram suscetíveis a estouros de buffer ao processar comandos longos, o que poderia permitir a execução de código arbitrário.
+2. SSH (Secure Shell):
+O que é:
+ SSH é um protocolo de rede criptografado que permite a administração segura de sistemas remotos e a transferência segura de arquivos.
+Vulnerabilidades Comuns e Exploração:
+Ataques de força bruta:
+ Se as senhas forem fracas, atacantes podem tentar adivinhar as credenciais usando ataques de força bruta (especialmente se a autenticação por chave pública não estiver configurada ou se a chave privada estiver comprometida).
+Vulnerabilidades em implementações específicas:
+ Assim como o FTP, diferentes implementações de SSH (como OpenSSH) podem ter vulnerabilidades específicas em certas versões. Exploits podem existir para essas falhas, permitindo bypass de autenticação ou execução remota de código. Exemplo: Vulnerabilidades em como o SSH lida com certos tipos de pacotes ou extensões.
+Chaves privadas fracas ou comprometidas: 
+Se a chave privada de um usuário for fraca ou cair em mãos erradas, um atacante pode usá-la para se autenticar sem a necessidade da senha.
+Tunelamento reverso (Reverse Shell): 
+(Pós exploração)
+Embora não seja uma exploração direta de uma vulnerabilidade no SSH em si, se um atacante já tiver acesso a um sistema interno via SSH, ele pode usar o tunelamento reverso para criar um caminho de volta para sua máquina através de firewalls.
