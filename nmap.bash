@@ -9,7 +9,7 @@ do
     echo "Rodando Nmap para: $subdominio"
     
     # Rodando Nmap para identificar portas abertas, serviços e versões
-    nmap -T4 -sC -sV -p- -Pn "$subdominio" -oN "${subdominio}_nmap_result.txt"
+    nmap -T4 -sC -sV -p- "$subdominio" -oN "${subdominio}_nmap_result.txt"
     
     # Rodando Nmap para uma varredura mais profunda, incluindo scripts NSE para detectar vulnerabilidades
     nmap -T4 -sC -sV --script=vuln -p- -Pn "$subdominio" -oN "${subdominio}_vuln_scan.txt"
